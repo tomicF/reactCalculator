@@ -17,11 +17,14 @@ const buttons = [
   "C",
   "=",
   "+/-",
+  "*",
+  "/",
 ];
 
 let plus = false;
 let minus = false;
-
+let times = false;
+let devide = false;
 let previusValue = 0;
 
 export default function CalculatorScreen() {
@@ -31,11 +34,49 @@ export default function CalculatorScreen() {
     let sum = counter + label;
     sum = parseInt(sum);
     setCounter(sum);
-    console.log(sum);
+    console.log("sum: " + sum);
+    console.log("prev: " + previusValue);
 
     if (label === "+/-") {
       sum = sum * -1;
       setCounter(sum);
+      return;
+    }
+
+    if (label === "*") {
+      if (times) {
+        previusValue *= counter;
+      } else {
+        previusValue = counter;
+      }
+      times = true;
+      setCounter(0);
+      return;
+    }
+    if (label === "/") {
+      if (devide) {
+        previusValue /= counter;
+      } else {
+        previusValue = counter;
+      }
+      devide = true;
+      setCounter(0);
+      return;
+    }
+
+    if (devide === true && label === "=") {
+      const result = previusValue / counter;
+      previusValue = 0;
+      setCounter(result);
+      devide = false;
+      return;
+    }
+
+    if (times === true && label === "=") {
+      const result = previusValue * counter;
+      previusValue = 0;
+      setCounter(result);
+      times = false;
       return;
     }
 
