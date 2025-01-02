@@ -19,6 +19,7 @@ const buttons = [
   "+/-",
   "*",
   "/",
+  ".",
 ];
 
 let plus = false;
@@ -32,13 +33,18 @@ export default function CalculatorScreen() {
 
   const buttonPressed = (label) => {
     let sum = counter + label;
-    sum = parseInt(sum);
+    sum = parseFloat(sum);
     setCounter(sum);
     console.log("sum: " + sum);
     console.log("prev: " + previusValue);
 
     if (label === "+/-") {
       sum = sum * -1;
+      setCounter(sum);
+      return;
+    }
+    if (label === ".") {
+      sum += ".";
       setCounter(sum);
       return;
     }
