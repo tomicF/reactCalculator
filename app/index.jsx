@@ -130,7 +130,7 @@ export default function CalculatorScreen() {
   };
 
   return (
-    <View style={{ marginTop: 50 }}>
+    <View style={{ flex: 1, backgroundColor: "#79D7BE", marginTop: 20 }}>
       <View style={styles.sumTextContainer}>
         <Text style={styles.sumText}>{counter}</Text>
       </View>
@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     marginTop: 50,
+    backgroundColor: "#79D7BE",
   },
   buttonText: {
     fontSize: 50,
@@ -166,22 +167,26 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: 100,
     height: 70,
-    backgroundColor: "blue",
+    backgroundColor: "#2E5077",
     borderRadius: 10,
     margin: 5,
   },
   sumText: {
     fontSize: 50,
-    color: "black",
+    color: "#F6F4F0",
+    paddingRight: 10,
     textAlign: "right",
   },
   sumTextContainer: {
     width: 320,
     height: 70,
-    backgroundColor: "white",
+    backgroundColor: "#4DA1A9",
     borderRadius: 10,
     marginTop: 100,
     marginLeft: "auto",
     marginRight: "auto",
+  },
+  background: {
+    backgroundColor: "#79D7BE",
   },
 });
